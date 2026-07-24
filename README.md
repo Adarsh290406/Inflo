@@ -89,7 +89,7 @@ create policy "Public leads insert"
 ## 📥 Features Verified
 
 * **Optimistic Status Transitions**: When changing a lead status in `/admin`, the UI updates instantly while the Postgres update runs in the background.
-* **Real-time Live Sync**: Leverages Supabase PostgreSQL changes subscription so new lead submissions slide into the ledger dashboard in real-time with **zero page reload**.
+* **Live Status Updates**: Status changes reflect instantly in the UI via optimistic updates; new lead submissions appear on next page load/refresh of the admin dashboard*.
 * **CSV Export Ledger**: Includes a verified CSV export engine that parses table entries into a clean UTF-8 document downloadable directly to your local file system.
 
 ---
