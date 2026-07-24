@@ -140,17 +140,17 @@ export default function LeadsTable({ initialLeads }: LeadsTableProps) {
           <p className="text-black/60 text-xs font-mono mt-1 uppercase tracking-wider">Manage, qualifying and close pipeline</p>
         </div>
 
-        <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider">
+        <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto font-mono text-[11px] uppercase tracking-wider">
           <button
             onClick={exportCSV}
-            className="px-4 py-2 border-2 border-black bg-[#F4EFE6] text-black font-bold hover:bg-black hover:text-[#F4EFE6] transition shadow-sm"
+            className="flex-grow sm:flex-grow-0 px-4 py-2 border-2 border-black bg-[#F4EFE6] text-black font-bold hover:bg-black hover:text-[#F4EFE6] transition shadow-sm"
           >
             📥 Export CSV
           </button>
 
           <button
             onClick={handleLogout}
-            className="px-4 py-2 border-2 border-black bg-black text-[#F4EFE6] font-bold hover:bg-[#E4572E] transition shadow-sm"
+            className="flex-grow sm:flex-grow-0 px-4 py-2 border-2 border-black bg-black text-[#F4EFE6] font-bold hover:bg-[#E4572E] transition shadow-sm"
           >
             Sign Out ↵
           </button>
@@ -158,7 +158,7 @@ export default function LeadsTable({ initialLeads }: LeadsTableProps) {
       </div>
 
       {/* Summary Stat KPI Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="border-2 border-black bg-[#F4EFE6] p-5 relative rounded-none shadow-sm">
           <div className="absolute -top-2.5 left-4 bg-[#F4EFE6] px-1.5 font-mono text-[9px] uppercase tracking-[0.15em] text-black/50">
             Plate 01
@@ -193,9 +193,9 @@ export default function LeadsTable({ initialLeads }: LeadsTableProps) {
       </div>
 
       {/* Filter Tabs & Search Bar */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
         {/* Status Tabs */}
-        <div className="flex items-center gap-1.5 p-1 rounded-none bg-transparent border-2 border-black self-start">
+        <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-none bg-transparent border-2 border-black self-start">
           {(['All', 'New', 'Contacted', 'Closed'] as const).map((tab) => (
             <button
               key={tab}
@@ -212,7 +212,7 @@ export default function LeadsTable({ initialLeads }: LeadsTableProps) {
         </div>
 
         {/* Search Bar */}
-        <div className="relative w-full sm:w-72">
+        <div className="relative w-full md:w-72">
           <input
             type="text"
             value={searchTerm}
@@ -232,9 +232,9 @@ export default function LeadsTable({ initialLeads }: LeadsTableProps) {
               <tr>
                 <th className="p-4">01 Contact</th>
                 <th className="p-4">02 Budget</th>
-                <th className="p-4">03 Message</th>
+                <th className="hidden sm:table-cell p-4">03 Message</th>
                 <th className="p-4">04 Status</th>
-                <th className="p-4">05 Date</th>
+                <th className="hidden md:table-cell p-4">05 Date</th>
               </tr>
             </thead>
 
@@ -256,13 +256,13 @@ export default function LeadsTable({ initialLeads }: LeadsTableProps) {
 
                     {/* Budget Range */}
                     <td className="p-4">
-                      <span className="font-mono text-xs border border-black/35 px-2 py-0.5 bg-black/[0.02]">
+                      <span className="font-mono text-xs border border-black/35 px-2 py-0.5 bg-black/[0.02] whitespace-nowrap">
                         {lead.budget_range}
                       </span>
                     </td>
 
                     {/* Message snippet */}
-                    <td className="p-4 max-w-xs text-black/80 font-normal leading-relaxed text-sm">
+                    <td className="hidden sm:table-cell p-4 max-w-xs text-black/80 font-normal leading-relaxed text-sm whitespace-normal break-words">
                       {lead.message || <span className="text-black/30 italic">No description provided</span>}
                     </td>
 
@@ -289,7 +289,7 @@ export default function LeadsTable({ initialLeads }: LeadsTableProps) {
                     </td>
 
                     {/* Submission Date */}
-                    <td className="p-4 font-mono text-black/50 whitespace-nowrap">
+                    <td className="hidden md:table-cell p-4 font-mono text-black/50 whitespace-nowrap">
                       {new Date(lead.created_at).toLocaleDateString('en-US', {
                         month: 'short',
                         day: 'numeric',
