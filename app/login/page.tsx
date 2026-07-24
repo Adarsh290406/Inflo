@@ -18,35 +18,27 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      // 1. If Supabase URL is set, perform real Supabase Auth
-      if (process.env.NEXT_PUBLIC_SUPABASE_URL && password !== 'admin123') {
-        const { error: authError } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-
-        if (authError) {
-          setError(authError.message);
-          setLoading(false);
-          return;
-        }
-
-        // Successfully signed in via Supabase Auth
-        document.cookie = `inflo_session=active; path=/; max-age=86400`;
-        router.push('/admin');
-        router.refresh();
+      if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+        setError('Supabase connection parameters are not configured in environment variables.');
+        setLoading(false);
         return;
       }
 
-      // 2. Demo Passkey fallback (e.g., 'admin123')
-      if (password === 'admin123' || password === 'digitalheroes' || !process.env.NEXT_PUBLIC_SUPABASE_URL) {
-        document.cookie = `inflo_session=active; path=/; max-age=86400`;
-        router.push('/admin');
-        router.refresh();
+      const { error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (authError) {
+        setError(authError.message);
+        setLoading(false);
         return;
       }
 
-      setError('Invalid admin password. (Try demo password: admin123)');
+      // Successfully signed in via Supabase Auth
+      document.cookie = `inflo_session=active; path=/; max-age=86400`;
+      router.push('/admin');
+      router.refresh();
     } catch (err: any) {
       setError(err.message || 'Login failed');
     } finally {
@@ -120,7 +112,7 @@ export default function LoginPage() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password (demo: admin123)"
+                placeholder="••••••••"
                 className="brutal-input text-[15px]"
                 required
               />
@@ -136,7 +128,7 @@ export default function LoginPage() {
           </form>
 
           <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-black/40 text-center pt-4">
-            Demo — Any credentials accepted
+            Security — Authorized Admin Session Only
           </div>
         </div>
       </div>
