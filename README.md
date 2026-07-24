@@ -51,8 +51,8 @@ Follow these steps to run the project locally:
 - **RLS Lockdown**: Public anonymous users can only insert rows, and are completely blocked from reading or updating leads directly from the browser.
 
 > **🔒 Test Credentials for Reviewer**:
-> - **Admin Email**: `admin@digitalheroes.co`
-> - **Password**: `123456789`
+> - **Admin Email**: `reviewer@inflo.app`
+> - **Password**: `inflo@123`
 
 ---
 
