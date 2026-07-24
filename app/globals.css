@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: #F4EFE6;
+  color: #0E0E0E;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Paper noise effect using SVG pattern overlay */
+.paper-noise {
+  position: relative;
+}
+
+.paper-noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: 0.65;
+  mix-blend-mode: multiply;
+}
+
+/* Hairline dividers (standard newsprint layout) */
+.hairline {
+  border-color: rgba(14, 14, 14, 0.15);
+}
+
+.hairline-strong {
+  border-color: #0E0E0E;
+}
+
+/* Neo-brutalism Form Inputs */
+.brutal-input {
+  width: 100%;
+  background-color: transparent;
+  border-bottom: 2px solid #0E0E0E;
+  color: #0E0E0E;
+  border-radius: 0;
+  padding: 0.75rem 0;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.brutal-input:focus {
+  outline: none;
+  border-color: #E4572E;
+}
+
+.brutal-input::placeholder {
+  color: rgba(14, 14, 14, 0.35);
+}
+
+/* Continuous Marquee Animation */
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Orb drifting & spinning */
+@keyframes orb-drift {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.02); }
+}
+
+@keyframes orb-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.orb-drift {
+  animation: orb-drift 8s ease-in-out infinite;
+}
+
+.orb-spin {
+  animation: orb-spin 25s linear infinite;
+  transform-origin: center;
+}
