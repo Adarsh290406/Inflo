@@ -52,7 +52,7 @@ Follow these steps to run the project locally:
 
 > **🔒 Test Credentials for Reviewer**:
 > - **Admin Email**: `admin@digitalheroes.co`
-> - **Password**: '123456789'
+> - **Password**: `123456789`
 
 ---
 
