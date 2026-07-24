@@ -7,7 +7,7 @@
 
 ## 🚀 Overview
 
-**Inflo** is a light-footprint lead capture product and real-time administrative pipeline. It is styled with a premium **B2B Editorial Newspaper** layout, featuring serif typography (`Instrument Serif`), monospace ledger badges (`JetBrains Mono`), and high-contrast layouts.
+**Inflo** is a light-footprint lead capture product and real-time administrative pipeline. It is styled with a premium **B2B Editorial Newspaper** layout, featuring serif typography (`Fraunces`), monospace ledger badges (`Space Mono`), and high-contrast layouts.
 
 1. **Public Intake (`/`)**: A single-column editorial manifesto detailing the offering, paired with a validated, robust intake form (Name, Email, Budget Range, Message) with responsive, interactive UI.
 2. **Admin Ledger (`/admin`)**: A secure status table tracking incoming inquiries with live real-time sync, tabular status sorting, search filters, and standard CSV download exports.
@@ -101,5 +101,5 @@ create policy "Public leads insert"
 > 
 > **What I Custom-Built & Modified Afterward**:
 > - Re-engineered the database updates to route through server-validated Next.js **Server Actions** using cookie inspection, replacing insecure direct browser client Supabase updates.
-> - Rewrote the landing page layout to feature a custom **B2B Newspaper Editorial** style with high-craft serif layouts and a custom rotating SVG compass illustration.
+> - Rewrote the landing page layout to feature a custom **B2B Newspaper Editorial** style, configuring custom Google Web Fonts (**Fraunces** for elegant serif headers and **Space Mono** for structural data badges) to create a unique visual voice.
 > - Hand-wrote all the copywriting and microcopy on the homepage and forms to match the premium editorial paper-ink theme, replacing standard AI placeholders.

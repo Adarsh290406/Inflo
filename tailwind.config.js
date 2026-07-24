@@ -26,8 +26,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'Inter', 'sans-serif'],
-        heading: ['var(--font-heading)', 'Plus Jakarta Sans', 'sans-serif'],
-        mono: ['var(--font-mono)', 'JetBrains Mono', 'monospace'],
+        serif: ['var(--font-serif)', 'Georgia', 'serif'],
+        mono: ['var(--font-mono)', 'Space Mono', 'monospace'],
       },
       backgroundImage: {
         'brand-gradient': 'linear-gradient(135deg, #00e5ff 0%, #3b82f6 50%, #6366f1 100%)',
