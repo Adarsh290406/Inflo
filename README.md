@@ -7,10 +7,10 @@
 
 ## 🚀 Overview
 
-**Inflo** is a light-footprint lead capture product and real-time administrative pipeline. It is styled with a premium **B2B Editorial Newspaper** layout, featuring serif typography (`Fraunces`), monospace ledger badges (`Space Mono`), and high-contrast layouts.
+**Inflo** is a light-footprint lead capture product and lightweight administrative pipeline. It is styled with a premium **B2B Editorial Newspaper** layout, featuring serif typography (`Fraunces`), monospace ledger badges (`Space Mono`), and high-contrast layouts.
 
 1. **Public Intake (`/`)**: A single-column editorial manifesto detailing the offering, paired with a validated, robust intake form (Name, Email, Budget Range, Message) with responsive, interactive UI.
-2. **Admin Ledger (`/admin`)**: A secure status table tracking incoming inquiries with live real-time sync, tabular status sorting, search filters, and standard CSV download exports.
+2. **Admin Ledger (`/admin`)**: A secure status table tracking incoming inquiries with real-time , tabular status sorting, search filters, and standard CSV download exports.
 
 ---
 
